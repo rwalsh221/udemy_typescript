@@ -1,6 +1,7 @@
-const person: { name: string; age: number } = {
-  name: 'richard',
-  age: 30,
-};
+let userInput: unknown;
 
-console.log(person.name);
+userInput = 5;
+userInput = 'max';
+console.log(1);
+throw {};
+console.log(2);
