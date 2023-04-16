@@ -30,4 +30,5 @@ person.role.push('hello');
 let favoriteActivities: string[];
 favoriteActivities = ['sports'];
 
-console.log(person.name);
+console.log(favoriteActivities);
+export {};

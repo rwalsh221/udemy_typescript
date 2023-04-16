@@ -28,3 +28,5 @@ addAndHandle(10, 20, (result) => {
   console.log(test);
   return result;
 });
+
+export {};

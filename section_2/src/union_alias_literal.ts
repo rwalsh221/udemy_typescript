@@ -6,6 +6,7 @@ const combine = (
   resultType: Combinable
 ) => {
   let result;
+  console.log(resultType);
   if (typeof input1 === 'number' && typeof input2 === 'number') {
     result = input1 + input2;
   } else {
@@ -21,3 +22,5 @@ const combinedNames = combine('max', 20, 'as-number');
 
 const combinedNames2 = combine('max', 'anna', 'as-number');
 console.log(combinedNames);
+console.log(combinedNames2);
+export {};
