@@ -1,89 +1,37 @@
-class Department {
-  // constructor(n: string) {
-  //   this.name = n;
-  // }
-  // private id: string;
-  // private name: string;
-  constructor(protected readonly id: string, private name: string) {}
-  private employees: string[] = [];
+type Addfn = (a: number, b: number) => number;
 
-  describe() {
-    console.log(`Department: ${this.id} ${this.name}`);
+interface Addfn2 {
+  (a: number, b: number): number;
+}
+
+let add: Addfn;
+
+interface Named {
+  readonly name: string;
+  outPutname?: string;
+}
+
+interface Greetable extends Named {
+  greet(phrase: string): void;
+}
+
+class Person implements Greetable {
+  constructor(n: string) {
+    this.name = n;
   }
 
-  thisLog() {
-    console.log(this);
-  }
+  name: string;
+  age = 30;
 
-  addEmployee(employee: string) {
-    this.employees.push(employee);
-  }
-
-  printEmployeeInformation() {
-    console.log(this.employees.length);
-    console.log(this.employees);
-  }
-
-  static createEmployee(name: string) {
-    return { name: name };
+  greet(phrase: string): void {
+    console.log(`${phrase} ${this.name}`);
   }
 }
 
-class ITDepartment extends Department {
-  constructor(id: string, admins: string[]) {
-    super(id, 'IT');
-    this.admins = admins;
-  }
+let user1: Greetable;
 
-  admins: string[];
-}
-
-class AccountingDepartment extends Department {
-  constructor(id: string, private reports: string[]) {
-    super(id, 'Accounting');
-    this.lastReport = reports[0];
-  }
-
-  private lastReport: string;
-
-  get getLastReport() {
-    if (this.lastReport) {
-      return this.lastReport;
-    }
-    throw new Error('no report found');
-  }
-
-  set setLastReport(value: string) {
-    this.addReport(value);
-  }
-
-  addReport(report: string) {
-    this.reports.push(report);
-    this.lastReport = report;
-    return this.reports;
-  }
-}
-
-const emp1 = Department.createEmployee('max');
-console.log(emp1);
-
-const accounting2 = new AccountingDepartment('d3', []);
-const accounting = new Department('d1', 'Accounting');
-console.log(accounting);
-accounting.describe();
-accounting.thisLog();
-
-accounting.addEmployee('bill');
-accounting.addEmployee('bob');
-accounting.printEmployeeInformation();
-
-console.log(accounting2.addReport('something went wrong'));
-console.log(accounting2);
-
-const it = new ITDepartment('d2', ['john', 'phil']);
-it.describe();
-it.thisLog();
-
-it.addEmployee('bill');
-it.addEmployee('bob');
-it.printEmployeeInformation();
+user1 = new Person('Max');
+console.log(user1);
+user1.greet('hello');
+// user1.name = 'test';
+console.log(user1.name);
