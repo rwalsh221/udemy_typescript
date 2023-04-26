@@ -88,6 +88,6 @@ interface CourseGoal {
   completeUntil: Date;
 }
 
-const creatCourseGoal = (title, description, date) => {
-  return { title: title, description: description, completeDate: date };
-};
+// const creatCourseGoal = (title, description, date) => {
+//   return { title: title, description: description, completeDate: date };
+// };
